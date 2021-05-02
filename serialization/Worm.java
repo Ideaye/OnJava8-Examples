@@ -1,5 +1,5 @@
 // serialization/Worm.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Demonstrates object serialization
@@ -9,8 +9,7 @@ import java.util.*;
 class Data implements Serializable {
   private int n;
   Data(int n) { this.n = n; }
-  @Override
-  public String toString() {
+  @Override public String toString() {
     return Integer.toString(n);
   }
 }
@@ -32,10 +31,9 @@ public class Worm implements Serializable {
       next = new Worm(i, (char)(x + 1));
   }
   public Worm() {
-    System.out.println("No-arg constructor");
+    System.out.println("Zero-argument constructor");
   }
-  @Override
-  public String toString() {
+  @Override public String toString() {
     StringBuilder result = new StringBuilder(":");
     result.append(c);
     result.append("(");

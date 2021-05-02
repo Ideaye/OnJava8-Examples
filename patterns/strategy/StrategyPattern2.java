@@ -1,5 +1,5 @@
 // patterns/strategy/StrategyPattern2.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {java patterns.strategy.StrategyPattern2}
@@ -9,6 +9,7 @@ import java.util.*;
 
 // "Context" is now incorporated:
 class FindMinima2 {
+  private
   Function<List<Double>, List<Double>> algorithm;
   FindMinima2() { leastSquares(); } // default
   // The various strategies:
@@ -33,11 +34,14 @@ public class StrategyPattern2 {
       1.0, 2.0, 1.0, 2.0, -1.0,
       3.0, 4.0, 5.0, 4.0 );
     System.out.println(solver.minima(line));
+    solver.perturbation();
+    System.out.println(solver.minima(line));
     solver.bisection();
     System.out.println(solver.minima(line));
   }
 }
 /* Output:
 [1.1, 2.2]
+[3.3, 4.4]
 [5.5, 6.6]
 */

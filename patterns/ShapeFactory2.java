@@ -1,5 +1,5 @@
 // patterns/ShapeFactory2.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 import java.util.*;
@@ -8,9 +8,9 @@ import java.util.stream.*;
 import patterns.shapes.*;
 
 public class ShapeFactory2 implements FactoryMethod {
-  Map<String, Constructor> factories =
+  private Map<String, Constructor> factories =
     new HashMap<>();
-  static Constructor load(String id) {
+  private static Constructor load(String id) {
     System.out.println("loading " + id);
     try {
       return Class.forName("patterns.shapes." + id)
@@ -20,14 +20,12 @@ public class ShapeFactory2 implements FactoryMethod {
       throw new BadShapeCreation(id);
     }
   }
-  public Shape create(String id) {
+  @Override public Shape create(String id) {
     try {
       return (Shape)factories
         .computeIfAbsent(id, ShapeFactory2::load)
         .newInstance();
-    } catch(InstantiationException |
-            IllegalAccessException |
-            InvocationTargetException e) {
+    } catch(Exception e) {
       throw new BadShapeCreation(id);
     }
   }

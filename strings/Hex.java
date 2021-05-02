@@ -1,5 +1,5 @@
 // strings/Hex.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {java onjava.Hex}
@@ -27,7 +27,7 @@ public class Hex {
       // Test by displaying this class file:
       System.out.println(format(
         Files.readAllBytes(Paths.get(
-          "build/classes/main/onjava/Hex.class"))));
+          "build/classes/java/main/onjava/Hex.class"))));
     else
       System.out.println(format(
         Files.readAllBytes(Paths.get(args[0]))));

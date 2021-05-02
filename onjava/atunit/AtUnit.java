@@ -1,5 +1,5 @@
 // onjava/atunit/AtUnit.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // An annotation-based unit-test framework
@@ -33,8 +33,7 @@ public class AtUnit implements ProcessFiles.Strategy {
         System.out.println("  " + failed);
     }
   }
-  @Override
-  public void process(File cFile) {
+  @Override public void process(File cFile) {
     try {
       String cName = ClassNameFinder.thisClass(
         Files.readAllBytes(cFile.toPath()));
@@ -64,11 +63,11 @@ public class AtUnit implements ProcessFiles.Strategy {
              .getDeclaredConstructor()
              .getModifiers())) {
             System.out.println("Error: " + testClass +
-              " no-arg constructor must be public");
+              " zero-argument constructor must be public");
             System.exit(1);
           }
         } catch(NoSuchMethodException e) {
-          // Synthesized no-arg constructor; OK
+          // Synthesized zero-argument constructor; OK
         }
       System.out.println(testClass.getName());
     }
@@ -160,10 +159,13 @@ public class AtUnit implements ProcessFiles.Strategy {
         throw new RuntimeException("Couldn't run " +
           "@TestObject (creator) method.");
       }
-    } else { // Use the no-arg constructor:
+    } else { // Use the zero-argument constructor:
       try {
-        return testClass.newInstance();
+        return testClass
+          .getConstructor().newInstance();
       } catch(InstantiationException |
+              NoSuchMethodException |
+              InvocationTargetException |
               IllegalAccessException e) {
         throw new RuntimeException(
           "Couldn't create a test object. " +

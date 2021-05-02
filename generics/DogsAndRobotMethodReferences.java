@@ -1,9 +1,9 @@
 // generics/DogsAndRobotMethodReferences.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // "Assisted Latent Typing"
-import typeinfo.pets.*;
+import reflection.pets.*;
 import java.util.function.*;
 
 class PerformingDogA extends Dog {

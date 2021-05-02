@@ -1,5 +1,5 @@
 // generics/DynamicProxyMixin.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 import java.lang.reflect.*;
@@ -44,6 +44,7 @@ class MixinProxy implements InvocationHandler {
 
 public class DynamicProxyMixin {
   public static void main(String[] args) {
+    @SuppressWarnings("unchecked")
     Object mixin = MixinProxy.newInstance(
       tuple(new BasicImp(), Basic.class),
       tuple(new TimeStampedImp(), TimeStamped.class),
@@ -60,6 +61,6 @@ public class DynamicProxyMixin {
 }
 /* Output:
 Hello
-1494331653339
+1611503350927
 1
 */

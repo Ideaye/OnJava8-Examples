@@ -1,5 +1,5 @@
 // serialization/AStoreCADState.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Saving the state of a fictitious CAD system
@@ -20,8 +20,8 @@ abstract class Shape implements Serializable {
     yPos = yVal;
     dimension = dim;
   }
-  public String toString() {
-    return getClass() + "color[" + getColor() +
+  @Override public String toString() {
+    return getClass() + "Color[" + getColor() +
       "] xPos[" + xPos + "] yPos[" + yPos +
       "] dim[" + dimension + "]\n";
   }
@@ -43,10 +43,10 @@ class Circle extends Shape {
   Circle(int xVal, int yVal, int dim) {
     super(xVal, yVal, dim);
   }
-  public void setColor(Color newColor) {
+  @Override public void setColor(Color newColor) {
     color = newColor;
   }
-  public Color getColor() { return color; }
+  @Override public Color getColor() { return color; }
 }
 
 class Square extends Shape {
@@ -54,10 +54,10 @@ class Square extends Shape {
   Square(int xVal, int yVal, int dim) {
     super(xVal, yVal, dim);
   }
-  public void setColor(Color newColor) {
+  @Override public void setColor(Color newColor) {
     color = newColor;
   }
-  public Color getColor() { return color; }
+  @Override public Color getColor() { return color; }
 }
 
 class Line extends Shape {
@@ -73,10 +73,10 @@ class Line extends Shape {
   Line(int xVal, int yVal, int dim) {
     super(xVal, yVal, dim);
   }
-  public void setColor(Color newColor) {
+  @Override public void setColor(Color newColor) {
     color = newColor;
   }
-  public Color getColor() { return color; }
+  @Override public Color getColor() { return color; }
 }
 
 public class AStoreCADState {
@@ -106,15 +106,15 @@ public class AStoreCADState {
   }
 }
 /* Output:
-[class Circlecolor[GREEN] xPos[58] yPos[55] dim[93]
-, class Squarecolor[GREEN] xPos[61] yPos[61] dim[29]
-, class Linecolor[GREEN] xPos[68] yPos[0] dim[22]
-, class Circlecolor[GREEN] xPos[7] yPos[88] dim[28]
-, class Squarecolor[GREEN] xPos[51] yPos[89] dim[9]
-, class Linecolor[GREEN] xPos[78] yPos[98] dim[61]
-, class Circlecolor[GREEN] xPos[20] yPos[58] dim[16]
-, class Squarecolor[GREEN] xPos[40] yPos[11] dim[22]
-, class Linecolor[GREEN] xPos[4] yPos[83] dim[6]
-, class Circlecolor[GREEN] xPos[75] yPos[10] dim[42]
+[class CircleColor[GREEN] xPos[58] yPos[55] dim[93]
+, class SquareColor[GREEN] xPos[61] yPos[61] dim[29]
+, class LineColor[GREEN] xPos[68] yPos[0] dim[22]
+, class CircleColor[GREEN] xPos[7] yPos[88] dim[28]
+, class SquareColor[GREEN] xPos[51] yPos[89] dim[9]
+, class LineColor[GREEN] xPos[78] yPos[98] dim[61]
+, class CircleColor[GREEN] xPos[20] yPos[58] dim[16]
+, class SquareColor[GREEN] xPos[40] yPos[11] dim[22]
+, class LineColor[GREEN] xPos[4] yPos[83] dim[6]
+, class CircleColor[GREEN] xPos[75] yPos[10] dim[42]
 ]
 */

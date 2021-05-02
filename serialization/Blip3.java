@@ -1,5 +1,5 @@
 // serialization/Blip3.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Reconstructing an externalizable object
@@ -16,20 +16,17 @@ public class Blip3 implements Externalizable {
     System.out.println("Blip3(String x, int a)");
     s = x;
     i = a;
-    // s & i initialized only in non-no-arg constructor.
+    // s & i initialized only in non-zero-argument constructor.
   }
-  @Override
-  public String toString() { return s + i; }
-  @Override
-  public void writeExternal(ObjectOutput out)
+  @Override public String toString() { return s + i; }
+  @Override public void writeExternal(ObjectOutput out)
   throws IOException {
     System.out.println("Blip3.writeExternal");
     // You must do this:
     out.writeObject(s);
     out.writeInt(i);
   }
-  @Override
-  public void readExternal(ObjectInput in)
+  @Override public void readExternal(ObjectInput in)
   throws IOException, ClassNotFoundException {
     System.out.println("Blip3.readExternal");
     // You must do this:

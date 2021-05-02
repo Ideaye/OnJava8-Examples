@@ -1,5 +1,5 @@
 // enums/Reflection.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Analyzing enums using reflection
@@ -38,7 +38,7 @@ public class Reflection {
     System.out.println(exploreMethods);
     // Decompile the code for the enum:
     OSExecute.command(
-      "javap -cp build/classes/main Explore");
+      "javap -cp build/classes/java/main Explore");
   }
 }
 /* Output:

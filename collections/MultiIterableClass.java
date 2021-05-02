@@ -1,5 +1,5 @@
 // collections/MultiIterableClass.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Adding several Adapter Methods
@@ -11,12 +11,13 @@ public class MultiIterableClass extends IterableClass {
       public Iterator<String> iterator() {
         return new Iterator<String>() {
           int current = words.length - 1;
-          public boolean hasNext() {
+          @Override public boolean hasNext() {
             return current > -1;
           }
-          public String next() {
+          @Override public String next() {
             return words[current--];
           }
+          @Override
           public void remove() { // Not implemented
             throw new UnsupportedOperationException();
           }
@@ -28,7 +29,7 @@ public class MultiIterableClass extends IterableClass {
     return new Iterable<String>() {
       public Iterator<String> iterator() {
         List<String> shuffled =
-          new ArrayList<String>(Arrays.asList(words));
+          new ArrayList<>(Arrays.asList(words));
         Collections.shuffle(shuffled, new Random(47));
         return shuffled.iterator();
       }

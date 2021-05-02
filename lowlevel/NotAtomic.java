@@ -1,8 +1,9 @@
 // lowlevel/NotAtomic.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// {javap -c NotAtomic}
+// javap -c NotAtomic
+// {ExcludeFromGradle}
 // {VisuallyInspectOutput}
 
 public class NotAtomic {
@@ -18,8 +19,7 @@ public class NotAtomic {
   public NotAtomic();
     Code:
        0: aload_0
-       1: invokespecial #1 // Method
-java/lang/Object."<init>":()V
+       1: invokespecial #1 // Method java/lang/Object."<init>":()V
        4: return
 
   void f1();

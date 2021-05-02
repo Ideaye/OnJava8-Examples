@@ -1,10 +1,10 @@
 // annotations/AtUnitExample2.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Assertions and exceptions can be used in @Tests
 // {java onjava.atunit.AtUnit
-// build/classes/main/annotations/AtUnitExample2.class}
+// build/classes/java/main/annotations/AtUnitExample2.class}
 package annotations;
 import java.io.*;
 import onjava.atunit.*;
@@ -40,18 +40,18 @@ public class AtUnitExample2 {
 }
 /* Output:
 annotations.AtUnitExample2
-  . exceptionExample java.io.FileNotFoundException:
-nofile.txt (The system cannot find the file specified)
-(failed)
-  . assertExample
-  . assertAndReturn This is methodTwo
-
   . assertFailureExample java.lang.AssertionError: What
 a surprise!
 (failed)
+  . assertExample
+  . exceptionExample java.io.FileNotFoundException:
+nofile.txt (The system cannot find the file specified)
+(failed)
+  . assertAndReturn This is methodTwo
+
 (4 tests)
 
 >>> 2 FAILURES <<<
-  annotations.AtUnitExample2: exceptionExample
   annotations.AtUnitExample2: assertFailureExample
+  annotations.AtUnitExample2: exceptionExample
 */

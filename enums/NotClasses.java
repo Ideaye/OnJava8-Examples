@@ -1,25 +1,23 @@
 // enums/NotClasses.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// {javap -c LikeClasses}
+// {ExcludeFromGradle}
+// javap -c LikeClasses
 
 enum LikeClasses {
   WINKEN {
-    @Override
-    void behavior() {
+    @Override void behavior() {
       System.out.println("Behavior1");
     }
   },
   BLINKEN {
-    @Override
-    void behavior() {
+    @Override void behavior() {
       System.out.println("Behavior2");
     }
   },
   NOD {
-    @Override
-    void behavior() {
+    @Override void behavior() {
       System.out.println("Behavior3");
     }
   };

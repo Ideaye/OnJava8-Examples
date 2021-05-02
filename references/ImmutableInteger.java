@@ -1,5 +1,5 @@
 // references/ImmutableInteger.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // The Integer class cannot be changed
@@ -8,6 +8,7 @@ import java.util.stream.*;
 
 public class ImmutableInteger {
   public static void main(String[] args) {
+    @SuppressWarnings("deprecation")
     List<Integer> v = IntStream.range(0, 10)
       .mapToObj(Integer::new)
       .collect(Collectors.toList());

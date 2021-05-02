@@ -1,28 +1,29 @@
 // generics/InstantiateGenericType.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 import java.util.function.*;
+import java.lang.reflect.InvocationTargetException;
 
 class ClassAsFactory<T> implements Supplier<T> {
   Class<T> kind;
   ClassAsFactory(Class<T> kind) {
     this.kind = kind;
   }
-  @Override
-  public T get() {
+  @Override public T get() {
     try {
-      return kind.newInstance();
-    } catch(InstantiationException |
-            IllegalAccessException e) {
+      return kind.getConstructor().newInstance();
+    } catch(Exception e) {
       throw new RuntimeException(e);
     }
   }
 }
 
 class Employee {
-  @Override
-  public String toString() { return "Employee"; }
+  public Employee() {}
+  @Override public String toString() {
+    return "Employee";
+  }
 }
 
 public class InstantiateGenericType {
@@ -41,5 +42,6 @@ public class InstantiateGenericType {
 }
 /* Output:
 Employee
-java.lang.InstantiationException: java.lang.Integer
+java.lang.NoSuchMethodException:
+java.lang.Integer.<init>()
 */

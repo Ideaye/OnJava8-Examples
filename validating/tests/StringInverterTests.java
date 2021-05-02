@@ -1,5 +1,5 @@
 // validating/tests/StringInverterTests.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 package validating;
@@ -22,7 +22,7 @@ public class StringInverterTests {
   }
   @Test
   void basicInversion2() {
-    expectThrows(Error.class, () -> {
+    assertThrows(Error.class, () -> {
       assertEquals(inverter.invert("X"), "X");
     });
   }
@@ -52,7 +52,7 @@ public class StringInverterTests {
   void lengthNoGreaterThan30() {
     String str = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
     assertTrue(str.length() > 30);
-    expectThrows(RuntimeException.class, () -> {
+    assertThrows(RuntimeException.class, () -> {
       inverter.invert(str);
     });
   }

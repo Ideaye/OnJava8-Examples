@@ -1,10 +1,11 @@
 // patterns/state/StateMachineDemo.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// The StateMachine pattern and Template method
+// The State Machine pattern.
 // {java patterns.state.StateMachineDemo}
 package patterns.state;
+import java.util.*;
 import onjava.Nap;
 
 interface State {
@@ -16,7 +17,7 @@ abstract class StateMachine {
   protected abstract boolean changeState();
   // Template method:
   protected final void runAll() {
-    while(changeState()) // Customizable
+    while(changeState())
       currentState.run();
   }
 }
@@ -24,24 +25,21 @@ abstract class StateMachine {
 // A different subclass for each state:
 
 class Wash implements State {
-  @Override
-  public void run() {
+  @Override public void run() {
     System.out.println("Washing");
     new Nap(0.5);
   }
 }
 
 class Spin implements State {
-  @Override
-  public void run() {
+  @Override public void run() {
     System.out.println("Spinning");
     new Nap(0.5);
   }
 }
 
 class Rinse implements State {
-  @Override
-  public void run() {
+  @Override public void run() {
     System.out.println("Rinsing");
     new Nap(0.5);
   }
@@ -49,21 +47,19 @@ class Rinse implements State {
 
 class Washer extends StateMachine {
   private int i = 0;
-  // The state table:
-  private State[] states = {
-    new Wash(), new Spin(),
-    new Rinse(), new Spin(),
-  };
+  private Iterator<State> states =
+    Arrays.asList(
+      new Wash(), new Spin(),
+      new Rinse(), new Spin()
+    ).iterator();
   Washer() { runAll(); }
-  @Override
-  public boolean changeState() {
-    if(i < states.length) {
-      // Change the state by setting the
-      // surrogate reference to a new object:
-      currentState = states[i++];
-      return true;
-    } else
+  @Override public boolean changeState() {
+    if(!states.hasNext())
       return false;
+    // Set the surrogate reference
+    // to a new State object:
+    currentState = states.next();
+    return true;
   }
 }
 

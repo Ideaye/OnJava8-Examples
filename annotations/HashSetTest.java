@@ -1,9 +1,9 @@
 // annotations/HashSetTest.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {java onjava.atunit.AtUnit
-// build/classes/main/annotations/HashSetTest.class}
+// build/classes/java/main/annotations/HashSetTest.class}
 package annotations;
 import java.util.*;
 import onjava.atunit.*;
@@ -29,8 +29,8 @@ public class HashSetTest {
 }
 /* Output:
 annotations.HashSetTest
+  . tContains
   . initialization
   . tRemove
-  . tContains
 OK (3 tests)
 */

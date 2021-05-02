@@ -1,5 +1,5 @@
 // collectiontopics/CollectionMethods.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Things you can do with all Collections
@@ -56,8 +56,7 @@ public class CollectionMethods {
     // c2 and c3 (an intersection of sets):
     c2.retainAll(c3);
     show(c2);
-    // Throw away all the elements
-    // in c2 that also appear in c3:
+    // Discard all c2 elements that also appear in c3:
     c2.removeAll(c3);
     System.out.println(
       "c2.isEmpty() = " +  c2.isEmpty());

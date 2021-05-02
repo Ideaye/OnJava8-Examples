@@ -1,5 +1,5 @@
 // enums/menu/Food.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // Subcategorization of enums within interfaces
@@ -11,7 +11,7 @@ public interface Food {
   }
   enum MainCourse implements Food {
     LASAGNE, BURRITO, PAD_THAI,
-    LENTILS, HUMMOUS, VINDALOO;
+    LENTILS, HUMMUS, VINDALOO;
   }
   enum Dessert implements Food {
     TIRAMISU, GELATO, BLACK_FOREST_CAKE,

@@ -1,9 +1,9 @@
 // annotations/AtUnitExample4.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {java onjava.atunit.AtUnit
-// build/classes/main/annotations/AtUnitExample4.class}
+// build/classes/java/main/annotations/AtUnitExample4.class}
 // {VisuallyInspectOutput}
 package annotations;
 import java.util.*;

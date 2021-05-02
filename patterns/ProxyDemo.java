@@ -1,8 +1,8 @@
 // patterns/ProxyDemo.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// Simple demonstration of the Proxy pattern
+// Basic demonstration of the Proxy pattern.
 
 interface ProxyBase {
   void f();
@@ -11,10 +11,8 @@ interface ProxyBase {
 }
 
 class Proxy implements ProxyBase {
-  private ProxyBase implementation;
-  Proxy() {
-    implementation = new Implementation();
-  }
+  private ProxyBase implementation =
+    new Implementation();
   // Pass method calls to the implementation:
   @Override
   public void f() { implementation.f(); }
@@ -25,13 +23,13 @@ class Proxy implements ProxyBase {
 }
 
 class Implementation implements ProxyBase {
-  public void f() {
+  @Override public void f() {
     System.out.println("Implementation.f()");
   }
-  public void g() {
+  @Override public void g() {
     System.out.println("Implementation.g()");
   }
-  public void h() {
+  @Override public void h() {
     System.out.println("Implementation.h()");
   }
 }

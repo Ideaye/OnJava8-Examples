@@ -1,13 +1,13 @@
 // collections/SimpleIteration.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-import typeinfo.pets.*;
+import reflection.pets.*;
 import java.util.*;
 
 public class SimpleIteration {
   public static void main(String[] args) {
-    List<Pet> pets = Pets.list(12);
+    List<Pet> pets = new PetCreator().list(12);
     Iterator<Pet> it = pets.iterator();
     while(it.hasNext()) {
       Pet p = it.next();

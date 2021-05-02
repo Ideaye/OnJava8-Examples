@@ -1,8 +1,8 @@
 // patterns/ShapeFactory3.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
-// Polymorphic factory methods
+// Polymorphic factory methods.
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.*;
@@ -18,15 +18,16 @@ class RandomShapes implements Supplier<Shape> {
   RandomShapes(PolymorphicFactory... factories) {
     this.factories = factories;
   }
-  public Shape get() {
-    return factories[
-      rand.nextInt(factories.length)].create();
+  @Override public Shape get() {
+    return
+      factories[rand.nextInt(factories.length)]
+      .create();
   }
 }
 
 public class ShapeFactory3 {
   public static void main(String[] args) {
-    RandomShapes rs = new RandomShapes(
+    RandomShapes rs = new RandomShapes(    // [1]
       Circle::new, Square::new, Triangle::new
     );
     Stream.generate(rs)

@@ -1,9 +1,9 @@
 // annotations/AtUnitExample3.java
-// (c)2017 MindView LLC: see Copyright.txt
+// (c)2021 MindView LLC: see Copyright.txt
 // We make no guarantees that this code is fit for any purpose.
 // Visit http://OnJava8.com for more book information.
 // {java onjava.atunit.AtUnit
-// build/classes/main/annotations/AtUnitExample3.class}
+// build/classes/java/main/annotations/AtUnitExample3.class}
 package annotations;
 import onjava.atunit.*;
 import onjava.*;
@@ -35,8 +35,8 @@ public class AtUnitExample3 {
 /* Output:
 annotations.AtUnitExample3
   . initialization
+  . methodOneTest
   . m2 This is methodTwo
 
-  . methodOneTest
 OK (3 tests)
 */
